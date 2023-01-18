@@ -160,7 +160,7 @@ To evaluate a checkpoint trained using ZSON checkpoint use the following command
 
 If you use this code in your research, please consider citing:
 ```
-@inproceedings{ku2020room,
+@inproceedings{majumdar2022zson,
   title={ZSON: Zero-Shot Object-Goal Navigation using Multimodal Goal Embeddings},
   author={Majumdar, Arjun and Aggarwal, Gunjan and Devnani, Bhavika and Hoffman, Judy and Batra, Dhruv},
   booktitle={Neural Information Processing Systems (NeurIPS)},
