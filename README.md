@@ -53,13 +53,13 @@ All the required data can be downloaded from [here](https://huggingface.co/gunja
    ```
 
 
-### Download and Install zero-shot-object-nav:
+### Download and Install zson:
 1. Setup steps
    ```
    git clone git@github.com:gunagg/zson.git
    ```
    ```
-   cd zero-shot-object-nav
+   cd zson
    ```
    ```
    pip install -r requirements.txt
@@ -119,7 +119,7 @@ More details on the encoder can be found [here](https://arxiv.org/pdf/2204.13226
    .
    +-- habitat-lab-v0.2.1/
    |   ...
-   +-- zero-shot-object-nav/
+   +-- zson/
    |   +-- data/
    |   |   +-- datasets/
    |   |   |   +-- objectnav/
