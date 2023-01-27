@@ -110,6 +110,8 @@ All the required data can be downloaded from [here](https://huggingface.co/gunja
    ```
    rm objectnav_hm3d_v1.zip  # clean-up
    ```
+1. Download the trained checkpoints [zson_conf_A.pth](https://huggingface.co/gunjan050/ZSON/resolve/main/zson_conf_A.pth) and [zson_conf_B.pth](https://huggingface.co/gunjan050/ZSON/resolve/main/zson_conf_B.pth), and move to `data/checkpoints`.
+
 
 1. To train policies using OVRL pretrained RGB encoder, download the model weights from [here](https://huggingface.co/gunjan050/ZSON/resolve/main/omnidata_DINO_02.pth) and move to `data/models/`.
 More details on the encoder can be found [here](https://arxiv.org/pdf/2204.13226.pdf).
@@ -133,6 +135,7 @@ More details on the encoder can be found [here](https://arxiv.org/pdf/2204.13226
    |   |   |   +-- imagenav/
    |   |   |   |   +-- hm3d/
    |   |   +-- models/
+   |   |   +-- checkpoints/
    |   +-- zson/
    |   ...
    ```
