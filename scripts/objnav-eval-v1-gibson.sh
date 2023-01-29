@@ -17,7 +17,7 @@ export MASTER_ADDR
 
 source activate zson
 
-CKPT_DIR="data/checkpoints/zson_conf_B.pth"
+CKPT_DIR="data/checkpoints/zson_conf_A.pth"
 DATA_PATH="data/datasets/objectnav/gibson/v1/{split}/{split}.json.gz"
 
 set -x
