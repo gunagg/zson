@@ -298,18 +298,6 @@ class ZSONTrainer(PPOTrainer):
                     episode_stats["reward"] = current_episode_reward[i].item()
                     episode_stats.update(self._extract_scalars_from_info(infos[i]))
                     current_episode_reward[i] = 0
-                    if self.config.EVAL.episodes_eval_data:
-                        ep_metrics = copy.deepcopy(episode_stats)
-
-                        evaluation_meta.append(
-                            {
-                                "metrics": ep_metrics,
-                                "episode": get_episode_json(
-                                    current_episodes[i], ep_actions[i]
-                                ),
-                            }
-                        )
-                        ep_actions[i] = []
 
                     # use scene_id + episode_id as unique id for storing stats
                     stats_episodes[
@@ -337,17 +325,6 @@ class ZSONTrainer(PPOTrainer):
 
                 # episode continues
                 else:
-                    if self.config.EVAL.episodes_eval_data:
-                        ep_actions[i].append(
-                            {
-                                "action": action_names[i],
-                                "position": infos[i]["agent_position"].tolist(),
-                                "rotation": quaternion_to_list(
-                                    infos[i]["agent_rotation"]
-                                ),
-                            }
-                        )
-
                     if len(self.config.VIDEO_OPTION) > 0:
                         # TODO move normalization / channel changing out of the policy and undo it here
                         frame = observations_to_image(
@@ -400,18 +377,6 @@ class ZSONTrainer(PPOTrainer):
             {"average reward": aggregated_stats["reward"]},
             step_id,
         )
-
-        if self.config.EVAL.episodes_eval_data:
-            custom_aggregated_stats = aggregated_stats.copy()
-            custom_aggregated_stats[
-                "prompt"
-            ] = self.config.TASK_CONFIG.TASK.OBJECTGOAL_PROMPT_SENSOR.PROMPT
-            custom_aggregated_stats[
-                "image_shots"
-            ] = self.config.TASK_CONFIG.TASK.OBJECTGOAL_KSHOT_IMAGE_PROMPT_SENSOR.SHOTS
-            custom_aggregated_stats["episode_count"] = len(evaluation_meta)
-            write_json(custom_aggregated_stats, self.config.EVAL.avg_eval_metrics)
-            write_json(evaluation_meta, self.config.EVAL.evaluation_meta_file)
 
         metrics = {k: v for k, v in aggregated_stats.items() if k != "reward"}
         if len(metrics) > 0:
