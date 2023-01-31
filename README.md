@@ -70,7 +70,7 @@ All the required data can be downloaded from [here](https://huggingface.co/gunja
    python setup.py develop
    ```
 
-1. Follow the instructions [here](https://github.com/facebookresearch/habitat-sim/blob/main/DATASETS.md) to set up the `data/scene_datasets/` directory.
+1. Follow the instructions [here](https://github.com/facebookresearch/habitat-sim/blob/main/DATASETS.md) to set up the `data/scene_datasets/` directory. `gibson` scenes can be found [here](http://gibsonenv.stanford.edu/database/).
 
 1. Download the HM3D ImageNav training dataset:
 
